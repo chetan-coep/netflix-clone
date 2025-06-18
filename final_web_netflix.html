@@ -1,1 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Netflix Clone</title>
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+        margin: 0;
+        padding: 0;
+      }
+
+      .Headbar {
+        position: fixed;
+        height: 100px;
+        width: 100%;
+        max-width: 1270px;
+        background-color: rgb(0, 0, 0);
+        right: 0;
+        z-index: 2;
+        border: 1px solid black;
+      }
+
+      .loc_button,
+      .lang_button {
+        border: transparent;
+        background-color: rgb(255, 0, 0);
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s;
+        color: white;
+        font-family: Arial;
+        font-size: 13px;
+        font-weight: 800;
+        margin-top: 2px;
+        border: 3px solid red;
+      }
+
+      .loc_button {
+        width: 100px;
+        margin-left: 1015px;
+      }
+
+      .lang_button {
+        width: 110px;
+      }
+
+      .loc_button:hover,
+      .lang_button:hover {
+        background-color: black;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        height: 100%;
+      }
+
+      .net_img {
+        height: 80px;
+        width: 180px;
+      }
+
+      .loc_img {
+        height: 16px;
+        width: 16px;
+      }
+
+      .loc_text {
+        padding-left: 5px;
+      }
+      .share_img {
+        margin-right: 30px;
+      }
+      .nav-item {
+        display: inline-block;
+        color: aliceblue;
+        margin-right: 30px;
+        font-size: 16px;
+        font-family: Arial;
+        font-weight: 700;
+        transition: color 0.3s;
+      }
+      .nav-item_ {
+        display: inline-block;
+        color: aliceblue;
+        margin-right: 3px;
+        font-size: 16px;
+        font-family: Arial;
+        font-weight: 700;
+        transition: color 0.3s;
+      }
+
+      .nav-item:hover {
+        color: red;
+        cursor: pointer;
+      }
+      .nav-item_:hover {
+        color: red;
+        cursor: pointer;
+      }
+      .middle_1 {
+        height: 186px;
+        width: 1085px;
+        background-color: rgb(0, 0, 0);
+        margin-top: 111px;
+        border-bottom: 2px solid rgb(190, 0, 0);
+      }
+      .middle_2 {
+        height: 2347px;
+        width: 182px;
+        background-color: rgb(0, 0, 0);
+        margin-top: 111px;
+      }
+      .middle_p {
+        display: inline-block;
+        color: aliceblue;
+        margin-right: 585px;
+        font-size: 55px;
+        font-family: Arial;
+        font-weight: 700;
+        transition: color 0.3s;
+        margin-top: 10px;
+
+      }
+      .middle_nav {
+        display: inline-block;
+        color: rgb(255, 0, 0);
+        margin-right: 20px;
+        font-size: 23px;
+        font-family: Arial;
+        font-weight: 700;
+        transition: color 0.3s;
+        margin-top: 10px;
+      }
+      .middle_nav:hover {
+        color: rgb(255, 255, 255);
+        transition: color 0.3s;
+        cursor: pointer;
+        border-bottom: 2px solid rgb(255, 255, 255) ;
+      }
+      .middle_nav2 {
+        margin-left: 20px;
+        display: inline-block;
+        color: rgb(248, 0, 0);
+        margin-right: 20px;
+        font-size: 23px;
+        font-family: Arial;
+        font-weight: 700;
+        transition: color 0.3s;
+        margin-top: 10px;
+      }
+      .middle_nav2:hover {
+        color: rgb(255, 255, 255);
+        transition: color 0.3s;
+        cursor: pointer;
+        border-bottom: 3px solid rgb(255, 255, 255) ;
+        margin-bottom: 0;
+      }
+      .middle_last {
+        height: 100px;
+        background-color: rgb(0, 0, 0);
+        margin-top: 176px;
+      }
+      .middle_last_num {
+        font-size: 35px;
+        display: inline-block;
+        margin-right: 50px;
+        font-family: Arial;
+        font-weight: 1000;
+        color: rgb(255, 0, 0);
+      }
+      .middle_last_num:hover {
+        color: white;
+        border-bottom: 3px solid white;
+        cursor: pointer;
+      }
+      .middle_last_button {
+        width: 70px;
+        height: 70px;
+        background-color: rgb(255, 0, 0);
+      }
+      .middle_last_img {
+        height: 40px;
+        width: 40px;
+      }
+      .middle_last_button:hover {
+        background-color: black;
+        border-color: red;
+        cursor: pointer;
+      }
+      .middle_last2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 110px;
+        background-color: rgb(0, 0, 0);
+        margin-top: 90px;
+        margin-left: 0;
+      }
+      .middle_last_img2 {
+        height: 90px;
+        width: 198px;
+        margin-left: 0;
+        margin-right: 700px;
+      }
+      .middle_last_img3 {
+        height: 30px;
+        width: 30px;
+        margin-left: 30px;
+      }
+      .middle_last_img3:hover {
+        cursor: pointer;
+        opacity: 0.5;
+      }
+      .middle_last3 {
+        height: 100px;
+        display: flex;
+        background-color: rgb(0, 0, 0);
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 20px;
+        margin-top: 60px;
+      }
+      .middle_nav3 {
+        display: inline-block;
+        color: rgb(255, 255, 255);
+        margin-right: 20px;
+        font-size: 15px;
+        font-family: Arial;
+        font-weight: 700;
+        transition: color 0.3s;
+        margin-top: 10px;
+      }
+      .middle_nav3.middle_nav3:hover {
+        color: red;
+        cursor: pointer;
+      }
+      .cont {
+        position: relative;
+        background-color: lightblue;
+        width: 100%;
+        height: 350px;
+        overflow: hidden; 
+      }
+      .cont:hover {
+        cursor: pointer;
+      }
+      .child {
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 100%;
+        height: 120px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        gap: 5px;
+      }
+      .child:hover {
+        background-color: red;
+        cursor: pointer;
+      }
+      .cont:hover .child {
+        opacity: 1;
+      }
+      .cont-img {
+        height: 100%;
+        width: 100%;
+      }
+      .p_cont1 {
+        padding-bottom: 0px;
+        margin-bottom: 8px; 
+        margin-top: 0;
+      }
+      .p_cont2 {
+        padding-bottom: 0px; 
+        margin-bottom: 5px; 
+        margin-top: 0; 
+        font-size: 16px;
+        color: rgb(50, 50, 50);
+      }
+      .p_cont3 {
+        padding-bottom: 0px; 
+        margin-bottom: 0px; 
+        margin-top: 0; 
+        font-size: 18px; 
+        color: red;
+      }
+      .cont:hover .child,
+      .child:hover {
+        opacity: 1;
+      }
+      .child:hover .p_cont3 {
+        background-color: red;
+        color: white;
+      }
+      .Headbar_side {
+        width: 120px; position: absolute; z-index: 0; align-items: center; padding-left: 10px; padding-top: 14px; font-size: 14px; font-family: Arial; color: red; background-color: rgb(0, 0, 0); height: 2445px; width: 187px; font-weight: 800;
+      }
+      .Headbar_side_p {
+        transition: 1s;
+      }
+      .Headbar_side_p:hover {
+        cursor: pointer;
+        opacity: 0.7;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="Headbar_side">
+      <p class="Headbar_side_p" >Skip the Content</p>
+    </div>
+
+    <div class="Headbar">
+      <div style="height: 20px; width: 1270px; background-color: rgb(0, 0, 0);">
+        <div class="button-group">
+          <button class="loc_button">
+            <img class="loc_img" src="location.png">
+            <span class="loc_text">India -</span>
+          </button>
+          <button class="lang_button">
+            <img class="loc_img" src="language.png">
+            <span class="loc_text">English -</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="height: 60px; width: 1270px; background-color: rgb(0, 0, 0); display: flex; align-items: end; margin-top: 30px;">
+        <div style="background-color: rgb(0, 4, 6); width: 180px; margin-right: 280px;">
+          <img class="net_img" src="netflix.jpg">
+        </div>
+        <div class="top_options" style="display: flex; align-items: center;">
+        <p class="nav-item">Impact</p>
+          <p class="nav-item">Leadership</p>
+          <p class="nav-item">New Releases</p>
+          <p class="nav-item_">Investors</p><img class="share_img" src="share.png">
+          <p class="nav-item_">Press</p><img class="share_img" src="share.png">
+          <p class="nav-item_">Careers</p><img class="share_img" src="share.png">
+          <p class="nav-item">Resources</p>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: row; width: 1270px; margin-left: 197px;">
+    <div class="middle_1">
+      <p class="middle_p">New on Netflix</p>
+      <p class="middle_nav">Grid</p>
+      <p class="middle_nav" style="margin-right: 0;">List</p>
+      <p class="middle_nav2">All</p>
+      <p class="middle_nav2">Film</p>
+      <p class="middle_nav2">Series</p>
+      <p class="middle_nav2">Specials</p>
+      <div class="middle_grid" style="
+          display: grid;
+          margin-top: 30px;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          height: 1750px;
+          row-gap: 30px;
+          column-gap: 30px;
+          " > 
+        <div class="cont">
+          <img class="cont-img" src="1.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Sara - Woman in the Shadows</p>
+            <p class="p_cont2" >6/3/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+
+        <div class="cont">
+          <img class="cont-img" src="2.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Eva Lasting</p>
+            <p class="p_cont2" >6/4/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>    
+        <div class="cont">
+          <img class="cont-img" src="3.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Criminal Code</p>
+            <p class="p_cont2" >6/4/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="4.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Power Moves with Shaquille O'Neal</p>
+            <p class="p_cont2" >6/4/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="5.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Tires</p>
+            <p class="p_cont2" >6/5/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="6.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Ginny & Georgia</p>
+            <p class="p_cont2" >6/5/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="7.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Barracuda Queens</p>
+            <p class="p_cont2" >6/5/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="8.jpg" >
+          <div class="child">
+            <p class="p_cont1" >The Survivors</p>
+            <p class="p_cont2" >6/6/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>    
+        <div class="cont">
+          <img class="cont-img" src="9.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Mercy For None</p>
+            <p class="p_cont2" >6/6/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="10.jpg" >
+          <div class="child">
+            <p class="p_cont1" >STRAW</p>
+            <p class="p_cont2" >6/6/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>  
+        <div class="cont">
+          <img class="cont-img" src="11.jpg" >
+          <div class="child">
+            <p class="p_cont1" >K.O.</p>
+            <p class="p_cont2" >6/6/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="12.jpg" >
+          <div class="child">
+            <p class="p_cont1" >WWE Money in the Bank</p>
+            <p class="p_cont2" >6/7/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>    
+        <div class="cont">
+          <img class="cont-img" src="13.jpg" >
+          <div class="child">
+            <p class="p_cont1" >The Creature Cases</p>
+            <p class="p_cont2" >6/9/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="14.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Trainwreck: The Astroworld Tragedy</p>
+            <p class="p_cont2" >6/10/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div> 
+        <div class="cont">
+          <img class="cont-img" src="15.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Cocaine Air: Smugglers at 30,000 Ft.</p>
+            <p class="p_cont2" >6/11/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="16.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Aniela</p>
+            <p class="p_cont2" >6/11/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>    
+        <div class="cont">
+          <img class="cont-img" src="17.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Cheers to Life</p>
+            <p class="p_cont2" >6/11/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="18.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Titan: The OceanGate Disaster</p>
+            <p class="p_cont2" >6/11/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="19.jpg" >
+          <div class="child">
+            <p class="p_cont1" >The Fairly OddParents: A New Wish</p>
+            <p class="p_cont2" >6/12/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>
+        <div class="cont">
+          <img class="cont-img" src="20.jpg" >
+          <div class="child">
+            <p class="p_cont1" >Our Times</p>
+            <p class="p_cont2" >6/11/2025</p>
+            <p class="p_cont3" >Watch on Netflix →</p>
+          </div>
+        </div>  
+      </div>
+      <div class="middle_last">
+        <p class="middle_last_num">1</p>
+        <p class="middle_last_num">2</p>
+        <p class="middle_last_num">3</p>
+        <button class="middle_last_button"><img class="middle_last_img" src="arrow.png" alt=""></button>
+      </div>
+      <div class="middle_last2">
+        <img class="middle_last_img2" src="netflix.jpg">
+        <img class="middle_last_img3" src="twitter.svg">
+        <img class="middle_last_img3" src="instagram.svg">
+        <img class="middle_last_img3" src="facebook.svg">
+      </div>
+      <div class="middle_last3">
+        <p class="middle_nav3">Careers</p>
+        <p class="middle_nav3">Help Center</p>
+        <p class="middle_nav3">Netflix.com</p>
+        <p class="middle_nav3">Terms of Service</p>
+        <p class="middle_nav3">Privacy</p>
+        <p class="middle_nav3">Cookie Preferences</p>
+        <p style="display: inline-block;
+        color: rgb(255, 255, 255);
+        margin-right: 20px;
+        font-size: 15px;
+        font-family: Arial;
+        transition: color 0.3s;
+        margin-top: 10px;">© 2025 NETFLIX</p>
+      </div>
+
+    </div>
+  <div class="middle_2">
+  </div>
+</div>
+
+  </body>
+</html>
 
